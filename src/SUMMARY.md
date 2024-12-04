@@ -1,0 +1,15 @@
+# Summary
+
+- [Presentation](./home.md)
+- [Installation](./WINSRV12.md)
+- [ROLE FONCTION AD](./ADDS.md)
+- [AD](./AD.md)
+- [IPv4](./IPV4.md)
+- [IPv6](./IPV6.md)
+- [DHCP](./DHCP.md)
+- [DNS](./DNS.md)
+- [Sauvegarde et Restauration (PRA)](./PRA.md)
+- [IMPRESSION FTP SMTP SSL SSH](./STOCKAGE-FICHIER-IMPRESSIOn.md)
+- [GPO](./GPO.md)
+- [SECU GPO](./SECU-GPO.md)
+- [HYPER-V](./HYPER-V.md)
