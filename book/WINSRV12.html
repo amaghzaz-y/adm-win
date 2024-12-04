@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Installation - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./home.html"><strong>1.</strong> Presentation</a></li><li><a href="./WINSRV12.html" class="active"><strong>2.</strong> Installation</a></li><li><a href="./ADDS.html"><strong>3.</strong> ROLE FONCTION AD</a></li><li><a href="./AD.html"><strong>4.</strong> AD</a></li><li><a href="./IPV4.html"><strong>5.</strong> IPv4</a></li><li><a href="./IPV6.html"><strong>6.</strong> IPv6</a></li><li><a href="./DHCP.html"><strong>7.</strong> DHCP</a></li><li><a href="./DNS.html"><strong>8.</strong> DNS</a></li><li><a href="./PRA.html"><strong>9.</strong> Sauvegarde et Restauration (PRA)</a></li><li><a href="./STOCKAGE-FICHIER-IMPRESSIOn.html"><strong>10.</strong> IMPRESSION FTP SMTP SSL SSH</a></li><li><a href="./GPO.html"><strong>11.</strong> GPO</a></li><li><a href="./SECU-GPO.html"><strong>12.</strong> SECU GPO</a></li><li><a href="./HYPER-V.html"><strong>13.</strong> HYPER-V</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="./WINSRV12.html#déploiement-et-gestion-windows-server-2012" id="déploiement-et-gestion-windows-server-2012"><h2>Déploiement et Gestion Windows Server 2012</h2></a>
+<p><strong>Module 1 : Aperçu et Configuration Initiale</strong></p>
+<ul>
+<li>
+<p><strong>Aperçu de Windows Server 2012 :</strong></p>
+<ul>
+<li><strong>Serveurs Locaux :</strong> Fournissent des ressources (fichiers, impression, etc.) aux périphériques clients.</li>
+<li><strong>Cloud Computing :</strong> IaaS, PaaS, SaaS. Les clouds privés sont généralement sur site, mono-locataire et hautement automatisés via System Center 2012.</li>
+<li><strong>Éditions :</strong> Standard, Datacenter, Foundation, Essentials, Hyper-V Server, Storage Server (Workgroup &amp; Standard), MultiPoint Server (Standard &amp; Premium).</li>
+<li><strong>Interface minimale du serveur :</strong> Option d'installation sécurisée et économe en ressources, gérable via <code>sconfig.cmd</code> ou PowerShell, idéale pour la gestion à distance.</li>
+<li><strong>Rôles :</strong> Serveur Web, Contrôleur de domaine, Serveur de certificats, etc. Les rôles contiennent des composants de services de rôle qui fournissent des fonctionnalités spécifiques.</li>
+<li><strong>Fonctionnalités :</strong> Prennent en charge les rôles de serveur (par exemple, Sauvegarde Windows Server, clustering). Certaines fonctionnalités sont installées à la demande à partir d'une image montée.</li>
+</ul>
+</li>
+<li>
+<p><strong>Administration de Windows Server 2012 :</strong></p>
+<ul>
+<li><strong>Gestionnaire de serveur :</strong> Gérez plusieurs serveurs à partir d'une seule console, ajoutez des rôles/fonctionnalités, lancez PowerShell, affichez les événements, configurez les paramètres, exécutez l'Analyseur des meilleures pratiques.</li>
+<li><strong>Outils d'administration :</strong> Centre d'administration Active Directory, console DNS, Observateur d'événements, Gestion des stratégies de groupe, Gestionnaire des services Internet (IIS), Analyseur de performances, Moniteur de ressources, Planificateur de tâches.</li>
+<li><strong>Gestion à distance :</strong> WinRM pour la gestion par ligne de commande/PowerShell, Bureau à distance pour les sessions graphiques.</li>
+</ul>
+</li>
+<li>
+<p><strong>Installation :</strong></p>
+<ul>
+<li><strong>Méthodes :</strong> Disque optique, clé USB, Services de déploiement Windows.</li>
+<li><strong>Types :</strong> Mise à niveau (conserve les fichiers et les paramètres), Personnalisée (installation propre).</li>
+<li><strong>Configuration minimale requise :</strong> Processeur x64 (1,4 GHz), 512 Mo de RAM, 32 Go d'espace disque (plus si RAM &gt; 16 Go).</li>
+</ul>
+</li>
+<li>
+<p><strong>Configuration post-installation :</strong></p>
+<ul>
+<li><strong>Paramètres réseau :</strong> Configurez l'adresse IP, le serveur DNS.</li>
+<li><strong>Jonction de domaine :</strong> Nécessite un nom de domaine et un compte autorisé. La jonction de domaine hors ligne utilise <code>djoin</code>.</li>
+<li><strong>Activation :</strong> Utilisez la clé de produit.</li>
+<li><strong>Configuration de l'interface minimale :</strong> Utilisez <code>sconfig.cmd</code> pour gérer les paramètres.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Module 2 : Introduction à Windows PowerShell</strong></p>
+<ul>
+<li><strong>Qu'est-ce que PowerShell ?</strong> Un framework d'automatisation des tâches et de gestion de la configuration.</li>
+<li><strong>Syntaxe :</strong>
+<ul>
+<li><code>Get-Command -Noun &lt;NomNom&gt;</code> : Découvrir les cmdlets liées à un domaine spécifique (par exemple, Service, EventLog, Process).</li>
+<li><code>Get-Command -Verb &lt;NomVerbe&gt;</code> : Découvrir les cmdlets qui effectuent une action spécifique (par exemple, Get, Set, New).</li>
+<li><code>Help &lt;NomCmdlet&gt;</code> ou <code>Get-Help &lt;NomCmdlet&gt;</code> : Obtenir des informations d'aide sur une cmdlet spécifique.</li>
+</ul>
+</li>
+<li><strong>Cmdlets courantes pour l'administration de serveur :</strong>  Concentrez-vous sur les cmdlets utilisant des noms comme  <code>Service</code>, <code>EventLog</code> et <code>Process</code>.</li>
+<li><strong>Module ServerManager :</strong> Fournit des cmdlets pour la gestion des rôles et des fonctionnalités du serveur (par exemple, <code>Get-WindowsFeature</code>, <code>Install-WindowsFeature</code>).</li>
+<li><strong>PowerShell ISE :</strong> Un environnement de script intégré pour l'écriture, l'exécution et le débogage de scripts PowerShell.</li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./home.html" class="mobile-nav-chapters previous" title="Previous chapter">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="./ADDS.html" class="mobile-nav-chapters next" title="Next chapter">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="./home.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./ADDS.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>

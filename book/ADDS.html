@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>ROLE FONCTION AD - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./home.html"><strong>1.</strong> Presentation</a></li><li><a href="./WINSRV12.html"><strong>2.</strong> Installation</a></li><li><a href="./ADDS.html" class="active"><strong>3.</strong> ROLE FONCTION AD</a></li><li><a href="./AD.html"><strong>4.</strong> AD</a></li><li><a href="./IPV4.html"><strong>5.</strong> IPv4</a></li><li><a href="./IPV6.html"><strong>6.</strong> IPv6</a></li><li><a href="./DHCP.html"><strong>7.</strong> DHCP</a></li><li><a href="./DNS.html"><strong>8.</strong> DNS</a></li><li><a href="./PRA.html"><strong>9.</strong> Sauvegarde et Restauration (PRA)</a></li><li><a href="./STOCKAGE-FICHIER-IMPRESSIOn.html"><strong>10.</strong> IMPRESSION FTP SMTP SSL SSH</a></li><li><a href="./GPO.html"><strong>11.</strong> GPO</a></li><li><a href="./SECU-GPO.html"><strong>12.</strong> SECU GPO</a></li><li><a href="./HYPER-V.html"><strong>13.</strong> HYPER-V</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="./ADDS.html#active-directory-domain-services-ad-ds" id="active-directory-domain-services-ad-ds"><h2>Active Directory Domain Services (AD DS)</h2></a>
+<p><strong>I. Rôles</strong></p>
+<ul>
+<li>
+<p><strong>Définition:</strong> Un rôle de serveur est un ensemble de programmes logiciels configurés pour une tâche spécifique sur un réseau (ex : serveur web, serveur de fichiers).  Les rôles définissent le but principal d'un ordinateur.</p>
+</li>
+<li>
+<p><strong>Fonctionnement:</strong> Ils permettent à plusieurs utilisateurs ou ordinateurs de partager des ressources.</p>
+</li>
+<li>
+<p><strong>Caractéristiques:</strong></p>
+<ul>
+<li>Fonction spécifique</li>
+<li>Accessibilité par plusieurs utilisateurs/ordinateurs</li>
+<li>Gestion de bases de données propres (ex: demandes en file d'attente, info sur les utilisateurs/ordinateurs)</li>
+<li>Fonctionnement automatique une fois configurés correctement</li>
+</ul>
+</li>
+</ul>
+<p><strong>II. Services de Rôle</strong></p>
+<ul>
+<li>
+<p><strong>Définition:</strong> Les programmes logiciels qui permettent aux rôles d'exécuter leur fonction.  Un rôle peut avoir plusieurs services.</p>
+</li>
+<li>
+<p><strong>Choix:</strong> Vous pouvez sélectionner les services nécessaires en fonction des besoins.</p>
+</li>
+<li>
+<p><strong>Exemple:</strong></p>
+<ul>
+<li><em>Serveur DNS:</em> un service unique.</li>
+<li><em>Bureau à distance:</em> plusieurs services (ex: accès distant).</li>
+</ul>
+</li>
+</ul>
+<p><strong>III. Fonctionnalités</strong></p>
+<ul>
+<li>
+<p><strong>Définition:</strong> Des programmes logiciels qui améliorent la fonctionnalité d'un ou plusieurs rôles, ou de l'ensemble du serveur.</p>
+</li>
+<li>
+<p><strong>Exemples:</strong></p>
+<ul>
+<li><em>Clustering:</em> améliore la redondance et les performances.</li>
+<li><em>Client Telnet:</em> permet la communication à distance.</li>
+</ul>
+</li>
+</ul>
+<p><strong>IV. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong>
+<ul>
+<li>AD DS</li>
+<li>Contrôleurs de domaine</li>
+<li>Installation de contrôleur de domaine</li>
+</ul>
+</li>
+</ul>
+<p><strong>V. Leçon 1 : Vue d'ensemble d'AD DS</strong></p>
+<ul>
+<li><strong>Concepts:</strong>
+<ul>
+<li>Domaines AD DS</li>
+<li>Unités d'organisation (OU)</li>
+<li>Forêt AD DS</li>
+<li>Schéma AD DS</li>
+</ul>
+</li>
+</ul>
+<p><strong>VI. Composants (Physiques et Logiques)</strong></p>
+<ul>
+<li>
+<p><strong>Composants Physiques:</strong></p>
+<ul>
+<li>Magasin de données</li>
+<li>Contrôleurs de domaine</li>
+<li>Serveur de catalogue global</li>
+<li>Contrôleur de domaine lecture seule</li>
+</ul>
+</li>
+<li>
+<p><strong>Composants Logiques:</strong></p>
+<ul>
+<li>Partitions</li>
+<li>Schéma</li>
+<li>Domaines</li>
+<li>Arborescences de domaines</li>
+<li>Forêts</li>
+<li>Sites</li>
+<li>Unités d'organisation (OU)</li>
+</ul>
+</li>
+</ul>
+<p><strong>VII. Leçon 2 : Vue d'ensemble des contrôleurs de domaine</strong></p>
+<ul>
+<li><strong>Concepts:</strong>
+<ul>
+<li>Contrôleur de domaine</li>
+<li>Catalogue global</li>
+<li>Processus de connexion AD DS</li>
+<li>Enregistrements SRV dans DNS</li>
+<li>Maîtres d'opérations (FSMOs)</li>
+</ul>
+</li>
+</ul>
+<p><strong>VIII. Leçon 3 : Installation d'un contrôleur de domaine</strong></p>
+<ul>
+<li><strong>Méthodes:</strong>
+<ul>
+<li>Installation à partir du Gestionnaire de serveur</li>
+<li>Installation minimale Windows Server 2012</li>
+<li>Mise à niveau d'un contrôleur de domaine</li>
+<li>Installation à partir du support d'installation</li>
+</ul>
+</li>
+</ul>
+<p><strong>IX. Commandes importantes (Exemple)</strong></p>
+<ul>
+<li><code>dcpromo /unattend:&quot;D:\answerfile.txt&quot;</code> (Installation sans assistance)</li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./WINSRV12.html" class="mobile-nav-chapters previous" title="Previous chapter">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="./AD.html" class="mobile-nav-chapters next" title="Next chapter">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="./WINSRV12.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./AD.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>IMPRESSION FTP SMTP SSL SSH - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./home.html"><strong>1.</strong> Presentation</a></li><li><a href="./WINSRV12.html"><strong>2.</strong> Installation</a></li><li><a href="./ADDS.html"><strong>3.</strong> ROLE FONCTION AD</a></li><li><a href="./AD.html"><strong>4.</strong> AD</a></li><li><a href="./IPV4.html"><strong>5.</strong> IPv4</a></li><li><a href="./IPV6.html"><strong>6.</strong> IPv6</a></li><li><a href="./DHCP.html"><strong>7.</strong> DHCP</a></li><li><a href="./DNS.html"><strong>8.</strong> DNS</a></li><li><a href="./PRA.html"><strong>9.</strong> Sauvegarde et Restauration (PRA)</a></li><li><a href="./STOCKAGE-FICHIER-IMPRESSIOn.html" class="active"><strong>10.</strong> IMPRESSION FTP SMTP SSL SSH</a></li><li><a href="./GPO.html"><strong>11.</strong> GPO</a></li><li><a href="./SECU-GPO.html"><strong>12.</strong> SECU GPO</a></li><li><a href="./HYPER-V.html"><strong>13.</strong> HYPER-V</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="./STOCKAGE-FICHIER-IMPRESSIOn.html#stockage-fichiers-et-impression" id="stockage-fichiers-et-impression"><h2>Stockage, Fichiers, et Impression</h2></a>
+<p><strong>Module 9 : Stockage local</strong></p>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong>  Stockage (DAS, NAS, SAN), Disques (types et performances), Volumes, systèmes de fichiers.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble du Stockage</strong></p>
+<ul>
+<li><strong>Types et performances de disques:</strong> Différences de performances et de coûts entre les types de disques (EIDE, SATA, SCSI, SAS, SSD).</li>
+<li><strong>DAS (Direct Attached Storage):</strong> Stockage direct au serveur, peu coûteux, mais limité en disponibilité et extension.</li>
+<li><strong>NAS (Network Attached Storage):</strong> Stockage réseau, relativement abordable, mais avec des temps d'accès plus lents.</li>
+<li><strong>SAN (Storage Area Network):</strong> Réseau de stockage dédié, plus haut niveau de disponibilité et de redondance, plus coûteux que NAS ou DAS.</li>
+<li><strong>RAID:</strong> Technique pour améliorer la tolérance aux pannes et les performances du stockage, utilisant plusieurs disques. Différents niveaux de RAID (ex: RAID 0, etc.).</li>
+</ul>
+<p><strong>III. Leçon 2 : Gestion des disques et des volumes</strong></p>
+<ul>
+<li><strong>Formats de table de partition:</strong> MBR (Master Boot Record) et GPT (GUID Partition Table).  Différences de capacité et d'utilisation.</li>
+<li><strong>Types de disques:</strong> Disques de base et dynamiques.</li>
+<li><strong>Système de fichiers:</strong>  Différences entre FAT, NTFS, et ReFS.  Choisir un système de fichiers adapté à vos besoins.</li>
+<li><strong>Points de montage et liens:</strong> Créer des points de montage pour accéder aux ressources d'un disque ou répertoire autrement que par des lettres de lecteur.</li>
+</ul>
+<p><strong>Module 10 : Services de fichiers et d'impression</strong></p>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong>  Sécurisation du stockage, protection des fichiers et dossiers, configuration de l'impression réseau.</li>
+</ul>
+<p><strong>II. Leçon 1 : Sécurisation des fichiers et des dossiers</strong></p>
+<ul>
+<li><strong>Autorisations NTFS:</strong> Contrôle de l'accès aux fichiers et dossiers sur les volumes NTFS, incluant le concept d'héritage.</li>
+<li><strong>Dossiers partagés:</strong>  Fonctionnement et mécanismes d'accès aux dossiers partagés (chemins UNC).</li>
+<li><strong>Énumération basée sur l'accès:</strong>  Mécanisme pour contrôler la visibilité des dossiers partagés en fonction des autorisations.</li>
+<li><strong>Fichiers hors connexion:</strong>  Fonctionnalité pour mettre en cache des fichiers réseau sur l'ordinateur client pour une utilisation hors connexion.</li>
+<li><strong>Démonstration:</strong>  Création et configuration d'un dossier partagé.</li>
+</ul>
+<p><strong>III. Leçon 2 : Protection des fichiers et des dossiers partagés à l'aide de clichés instantanés</strong></p>
+<ul>
+<li><strong>Clichés instantanés:</strong>  Techniques de sauvegarde rapide permettant de capturer l'état des données à un instant précis.</li>
+<li><strong>Planification des clichés instantanés:</strong> Éléments à considérer (capacité du serveur, fréquence des modifications).</li>
+<li><strong>Restauration de données à partir d'un cliché instantané:</strong>  Comment restaurer des données à partir d'un cliché instantané.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Configuration de l'impression réseau</strong></p>
+<ul>
+<li><strong>Avantages de l'impression réseau:</strong>  Gestion centralisée, dépannage facilité, coûts réduits.</li>
+<li><strong>Fonctionnalité Pointer &amp; Imprimer:</strong>  Meilleure structure de gestion pour les pilotes d'imprimante réseau.</li>
+<li><strong>Options de sécurité pour l'impression réseau:</strong>  Autorisations permettant de contrôler l'impression.</li>
+<li><strong>Pools d'imprimantes:</strong>  Combinaison de plusieurs imprimantes physiques en une seule unité logique.</li>
+<li><strong>Impression directe pour les filiales:</strong>  Technique pour connecter les imprimantes du siège social aux filiales.</li>
+<li><strong>Déploiement d'imprimantes:</strong>  Déplacer les imprimantes vers les clients.</li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./PRA.html" class="mobile-nav-chapters previous" title="Previous chapter">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="./GPO.html" class="mobile-nav-chapters next" title="Next chapter">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="./PRA.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./GPO.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>

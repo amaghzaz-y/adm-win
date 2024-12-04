@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>SECU GPO - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./home.html"><strong>1.</strong> Presentation</a></li><li><a href="./WINSRV12.html"><strong>2.</strong> Installation</a></li><li><a href="./ADDS.html"><strong>3.</strong> ROLE FONCTION AD</a></li><li><a href="./AD.html"><strong>4.</strong> AD</a></li><li><a href="./IPV4.html"><strong>5.</strong> IPv4</a></li><li><a href="./IPV6.html"><strong>6.</strong> IPv6</a></li><li><a href="./DHCP.html"><strong>7.</strong> DHCP</a></li><li><a href="./DNS.html"><strong>8.</strong> DNS</a></li><li><a href="./PRA.html"><strong>9.</strong> Sauvegarde et Restauration (PRA)</a></li><li><a href="./STOCKAGE-FICHIER-IMPRESSIOn.html"><strong>10.</strong> IMPRESSION FTP SMTP SSL SSH</a></li><li><a href="./GPO.html"><strong>11.</strong> GPO</a></li><li><a href="./SECU-GPO.html" class="active"><strong>12.</strong> SECU GPO</a></li><li><a href="./HYPER-V.html"><strong>13.</strong> HYPER-V</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="./SECU-GPO.html#feuille-de-triche---module-12--sécurité-des-serveurs-windows" id="feuille-de-triche---module-12--sécurité-des-serveurs-windows"><h2>Feuille de triche - Module 12 : Sécurité des serveurs Windows</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> Sécurité des systèmes d'exploitation Windows, paramètres de sécurité, restriction d'accès aux logiciels, Pare-feu Windows, fonctions avancées de sécurité.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble de la sécurité des systèmes d'exploitation Windows</strong></p>
+<ul>
+<li><strong>Identification des risques de sécurité et des coûts associés:</strong>  Comprendre les menaces potentielles (ex: virus, attaques par force brute) et l'impact financier d'une violation de sécurité.</li>
+</ul>
+<p><strong>III. Leçon 2 : Application d'une défense en profondeur pour améliorer la sécurité</strong></p>
+<ul>
+<li><strong>Défense en profondeur:</strong> Stratégie de sécurité multicouche, incluant plusieurs couches de protection (physique, réseau, système d'exploitation, applications, données).</li>
+<li><strong>Stratégies, procédures et sensibilisation:</strong>  Mesures à prendre au niveau de la documentation, formation et des utilisateurs.</li>
+<li><strong>Sécurité physique:</strong>  Mesures pour protéger le matériel physique.</li>
+<li><strong>Périmètre réseau:</strong>  Pare-feu, contrôle d'accès, zones de réseau.</li>
+<li><strong>Hôte:</strong>  Renforcement et authentification, mises à jour, antivirus.</li>
+<li><strong>Application:</strong>  Sécurité des applications, antivirus.</li>
+<li><strong>Données:</strong>  Contrôle d'accès aux données (ex: chiffrement).</li>
+</ul>
+<p><strong>IV. Leçon 2 : Configuration des paramètres de sécurité</strong></p>
+<ul>
+<li><strong>Configuration des modèles de sécurité:</strong>  Définir les configurations de sécurité basées sur des modèles.</li>
+<li><strong>Configuration des droits des utilisateurs:</strong>  Attribuer et limiter les droits d'accès aux utilisateurs.</li>
+<li><strong>Configuration des options de sécurité:</strong>  Configurer les paramètres de sécurité spécifiques (ex: noms des comptes, accès aux lecteurs CD/DVD, comportements des pilotes).</li>
+<li><strong>Configuration du contrôle de compte d'utilisateur (UAC):</strong>  Procédure d'authentification utilisateur renforcée.</li>
+</ul>
+<p><strong>V. Leçon 3 : Configuration du contrôle de compte d'utilisateur</strong></p>
+<ul>
+<li><strong>AppLocker:</strong>  Fonctionnalité pour contrôler l'exécution des applications sur les ordinateurs clients.</li>
+<li><strong>Stratégies de restriction logicielle:</strong>  Définir les applications autorisées à s'exécuter sur les ordinateurs clients.</li>
+<li><strong>Attributs de fichier (AppLocker):</strong>  Nom de l'éditeur, nom du produit, nom du fichier, version du fichier.</li>
+</ul>
+<p><strong>VI. Leçon 4 : Configuration du Pare-feu Windows avec fonctions avancées de sécurité</strong></p>
+<ul>
+<li><strong>Pare-feu Windows:</strong>  Fonctions de sécurité réseau, avec état et profils (Domaine, Public, Privé).</li>
+<li><strong>Profils de pare-feu:</strong>  Paramètres par défaut pour différents types de connexions.</li>
+<li><strong>Règles de sécurité de connexion:</strong>  Configurer les règles pour contrôler les connexions entre les ordinateurs.</li>
+<li><strong>Déploiement des règles de pare-feu:</strong>  Appliquer les règles aux ordinateurs clients (ex: via la stratégie de groupe).</li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./GPO.html" class="mobile-nav-chapters previous" title="Previous chapter">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="./HYPER-V.html" class="mobile-nav-chapters next" title="Next chapter">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="./GPO.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./HYPER-V.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>

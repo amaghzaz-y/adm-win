@@ -1,0 +1,186 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>IPv4 - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./home.html"><strong>1.</strong> Presentation</a></li><li><a href="./WINSRV12.html"><strong>2.</strong> Installation</a></li><li><a href="./ADDS.html"><strong>3.</strong> ROLE FONCTION AD</a></li><li><a href="./AD.html"><strong>4.</strong> AD</a></li><li><a href="./IPV4.html" class="active"><strong>5.</strong> IPv4</a></li><li><a href="./IPV6.html"><strong>6.</strong> IPv6</a></li><li><a href="./DHCP.html"><strong>7.</strong> DHCP</a></li><li><a href="./DNS.html"><strong>8.</strong> DNS</a></li><li><a href="./PRA.html"><strong>9.</strong> Sauvegarde et Restauration (PRA)</a></li><li><a href="./STOCKAGE-FICHIER-IMPRESSIOn.html"><strong>10.</strong> IMPRESSION FTP SMTP SSL SSH</a></li><li><a href="./GPO.html"><strong>11.</strong> GPO</a></li><li><a href="./SECU-GPO.html"><strong>12.</strong> SECU GPO</a></li><li><a href="./HYPER-V.html"><strong>13.</strong> HYPER-V</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="./IPV4.html#implémentation-du-protocole-ipv4" id="implémentation-du-protocole-ipv4"><h2>Implémentation du protocole IPv4</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> TCP/IP, Adressage IPv4, Sous-réseau, Super-réseau, Configuration et résolution de problèmes IPv4.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble de TCP/IP</strong></p>
+<ul>
+<li><strong>Suite de protocoles TCP/IP:</strong> Une suite de protocoles qui permettent la communication entre ordinateurs.</li>
+<li><strong>Protocoles de la suite TCP/IP:</strong>  Différents protocoles (HTTP, FTP, SMTP, DNS, etc.) et leurs rôles dans la communication.</li>
+<li><strong>Applications TCP/IP:</strong> Exemples d'applications qui utilisent la suite TCP/IP (HTTP, HTTPS, FTP, RDP, SMB, SMTP, POP3).</li>
+<li><strong>Socket:</strong> Une combinaison d'adresse IP, de protocole de transport (TCP ou UDP) et de numéro de port pour identifier une connexion spécifique.</li>
+</ul>
+<p><strong>III. Leçon 2 : Fonctionnement de l'adressage IPv4</strong></p>
+<ul>
+<li><strong>Adressage IPv4:</strong> Structure et représentation des adresses IP (notation décimale avec points).</li>
+<li><strong>Adresses IPv4 publiques et privées:</strong>  Différence et usages (ex: adresses privées pour les réseaux locaux).</li>
+<li><strong>Relation entre notation décimale et binaire:</strong>  Conversion entre la représentation décimale (ex: 192.168.1.1) et la représentation binaire de l'adresse IP.</li>
+<li><strong>Implémentations simples d'IPv4:</strong> Classes d'adresses (A, B, C) et leurs tailles de réseau.</li>
+<li><strong>Implémentations plus complexes d'IPv4:</strong>  Sous-réseaux, permettant de diviser un réseau en segments plus petits.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Sous-réseau et super-réseau</strong></p>
+<ul>
+<li><strong>Sous-réseau:</strong>  Diviser un réseau en sous-réseaux plus petits pour une meilleure gestion du trafic et de la sécurité.</li>
+<li><strong>Avantages du sous-réseau:</strong>  Gestion du trafic, sécurité, capacité d'extension, utilisation efficiente des adresses IP.</li>
+<li><strong>Calcul des adresses de sous-réseau:</strong>  Détermination du nombre de bits requis pour le masque de sous-réseau en fonction des besoins.</li>
+<li><strong>Calcul des adresses d'hôte:</strong>  Déterminer le nombre d'hôtes disponibles dans un sous-réseau.</li>
+<li><strong>Création d'un modèle de sous-réseau:</strong>  Étapes pour créer un modèle de sous-réseau adapté à un nouveau bureau.</li>
+<li><strong>Super-réseau:</strong>  Combinaison de plusieurs petits réseaux en un seul plus grand.</li>
+</ul>
+<p><strong>V. Leçon 4 : Configuration et résolution des problèmes liés à IPv4</strong></p>
+<ul>
+<li><strong>Configuration manuelle d'IPv4:</strong>  Saisir manuellement les paramètres d'adresse IP, masque de sous-réseau, passerelle par défaut et serveurs DNS. (écran illustré)</li>
+<li><strong>Configuration automatique d'IPv4 (DHCP):</strong>  Utiliser un serveur DHCP pour attribuer automatiquement les paramètres réseau. (Exemple de code)</li>
+<li><strong>Outils de résolution de problèmes:</strong>  Commandes pour diagnostiquer les problèmes réseau (Ipconfig, Ping, Tracert, Pathping, Telnet, Netstat, Observateur d'événements).</li>
+<li><strong>Processus de résolution de problèmes IPv4:</strong> Méthodologie de résolution des problèmes réseau.</li>
+<li><strong>Moniteur réseau:</strong>  Outil pour capturer et analyser le trafic réseau.  (écran illustré)</li>
+</ul>
+<p><strong>VI.  Utilisation de PowerShell (pour la configuration)</strong></p>
+<ul>
+<li><strong>Applets de commande PowerShell:</strong>  Commandes pour la gestion d'IPv4 dans PowerShell. (Liste fournie)</li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./AD.html" class="mobile-nav-chapters previous" title="Previous chapter">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="./IPV6.html" class="mobile-nav-chapters next" title="Next chapter">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="./AD.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./IPV6.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./home.html"><strong>1.</strong> Presentation</a></li><li><a href="./WINSRV12.html"><strong>2.</strong> Installation</a></li><li><a href="./ADDS.html"><strong>3.</strong> ROLE FONCTION AD</a></li><li><a href="./AD.html"><strong>4.</strong> AD</a></li><li><a href="./IPV4.html"><strong>5.</strong> IPv4</a></li><li><a href="./IPV6.html"><strong>6.</strong> IPv6</a></li><li><a href="./DHCP.html"><strong>7.</strong> DHCP</a></li><li><a href="./DNS.html"><strong>8.</strong> DNS</a></li><li><a href="./PRA.html"><strong>9.</strong> Sauvegarde et Restauration (PRA)</a></li><li><a href="./STOCKAGE-FICHIER-IMPRESSIOn.html"><strong>10.</strong> IMPRESSION FTP SMTP SSL SSH</a></li><li><a href="./GPO.html"><strong>11.</strong> GPO</a></li><li><a href="./SECU-GPO.html"><strong>12.</strong> SECU GPO</a></li><li><a href="./HYPER-V.html"><strong>13.</strong> HYPER-V</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="print.html#love-letter-to-rioc" id="love-letter-to-rioc"><h2>Love letter to RIOC</h2></a>
+<p><img src="images/family.jpg" alt="The Rust Logo" /></p>
+<a class="header" href="print.html#déploiement-et-gestion-windows-server-2012" id="déploiement-et-gestion-windows-server-2012"><h2>Déploiement et Gestion Windows Server 2012</h2></a>
+<p><strong>Module 1 : Aperçu et Configuration Initiale</strong></p>
+<ul>
+<li>
+<p><strong>Aperçu de Windows Server 2012 :</strong></p>
+<ul>
+<li><strong>Serveurs Locaux :</strong> Fournissent des ressources (fichiers, impression, etc.) aux périphériques clients.</li>
+<li><strong>Cloud Computing :</strong> IaaS, PaaS, SaaS. Les clouds privés sont généralement sur site, mono-locataire et hautement automatisés via System Center 2012.</li>
+<li><strong>Éditions :</strong> Standard, Datacenter, Foundation, Essentials, Hyper-V Server, Storage Server (Workgroup &amp; Standard), MultiPoint Server (Standard &amp; Premium).</li>
+<li><strong>Interface minimale du serveur :</strong> Option d'installation sécurisée et économe en ressources, gérable via <code>sconfig.cmd</code> ou PowerShell, idéale pour la gestion à distance.</li>
+<li><strong>Rôles :</strong> Serveur Web, Contrôleur de domaine, Serveur de certificats, etc. Les rôles contiennent des composants de services de rôle qui fournissent des fonctionnalités spécifiques.</li>
+<li><strong>Fonctionnalités :</strong> Prennent en charge les rôles de serveur (par exemple, Sauvegarde Windows Server, clustering). Certaines fonctionnalités sont installées à la demande à partir d'une image montée.</li>
+</ul>
+</li>
+<li>
+<p><strong>Administration de Windows Server 2012 :</strong></p>
+<ul>
+<li><strong>Gestionnaire de serveur :</strong> Gérez plusieurs serveurs à partir d'une seule console, ajoutez des rôles/fonctionnalités, lancez PowerShell, affichez les événements, configurez les paramètres, exécutez l'Analyseur des meilleures pratiques.</li>
+<li><strong>Outils d'administration :</strong> Centre d'administration Active Directory, console DNS, Observateur d'événements, Gestion des stratégies de groupe, Gestionnaire des services Internet (IIS), Analyseur de performances, Moniteur de ressources, Planificateur de tâches.</li>
+<li><strong>Gestion à distance :</strong> WinRM pour la gestion par ligne de commande/PowerShell, Bureau à distance pour les sessions graphiques.</li>
+</ul>
+</li>
+<li>
+<p><strong>Installation :</strong></p>
+<ul>
+<li><strong>Méthodes :</strong> Disque optique, clé USB, Services de déploiement Windows.</li>
+<li><strong>Types :</strong> Mise à niveau (conserve les fichiers et les paramètres), Personnalisée (installation propre).</li>
+<li><strong>Configuration minimale requise :</strong> Processeur x64 (1,4 GHz), 512 Mo de RAM, 32 Go d'espace disque (plus si RAM &gt; 16 Go).</li>
+</ul>
+</li>
+<li>
+<p><strong>Configuration post-installation :</strong></p>
+<ul>
+<li><strong>Paramètres réseau :</strong> Configurez l'adresse IP, le serveur DNS.</li>
+<li><strong>Jonction de domaine :</strong> Nécessite un nom de domaine et un compte autorisé. La jonction de domaine hors ligne utilise <code>djoin</code>.</li>
+<li><strong>Activation :</strong> Utilisez la clé de produit.</li>
+<li><strong>Configuration de l'interface minimale :</strong> Utilisez <code>sconfig.cmd</code> pour gérer les paramètres.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Module 2 : Introduction à Windows PowerShell</strong></p>
+<ul>
+<li><strong>Qu'est-ce que PowerShell ?</strong> Un framework d'automatisation des tâches et de gestion de la configuration.</li>
+<li><strong>Syntaxe :</strong>
+<ul>
+<li><code>Get-Command -Noun &lt;NomNom&gt;</code> : Découvrir les cmdlets liées à un domaine spécifique (par exemple, Service, EventLog, Process).</li>
+<li><code>Get-Command -Verb &lt;NomVerbe&gt;</code> : Découvrir les cmdlets qui effectuent une action spécifique (par exemple, Get, Set, New).</li>
+<li><code>Help &lt;NomCmdlet&gt;</code> ou <code>Get-Help &lt;NomCmdlet&gt;</code> : Obtenir des informations d'aide sur une cmdlet spécifique.</li>
+</ul>
+</li>
+<li><strong>Cmdlets courantes pour l'administration de serveur :</strong>  Concentrez-vous sur les cmdlets utilisant des noms comme  <code>Service</code>, <code>EventLog</code> et <code>Process</code>.</li>
+<li><strong>Module ServerManager :</strong> Fournit des cmdlets pour la gestion des rôles et des fonctionnalités du serveur (par exemple, <code>Get-WindowsFeature</code>, <code>Install-WindowsFeature</code>).</li>
+<li><strong>PowerShell ISE :</strong> Un environnement de script intégré pour l'écriture, l'exécution et le débogage de scripts PowerShell.</li>
+</ul>
+<a class="header" href="print.html#active-directory-domain-services-ad-ds" id="active-directory-domain-services-ad-ds"><h2>Active Directory Domain Services (AD DS)</h2></a>
+<p><strong>I. Rôles</strong></p>
+<ul>
+<li>
+<p><strong>Définition:</strong> Un rôle de serveur est un ensemble de programmes logiciels configurés pour une tâche spécifique sur un réseau (ex : serveur web, serveur de fichiers).  Les rôles définissent le but principal d'un ordinateur.</p>
+</li>
+<li>
+<p><strong>Fonctionnement:</strong> Ils permettent à plusieurs utilisateurs ou ordinateurs de partager des ressources.</p>
+</li>
+<li>
+<p><strong>Caractéristiques:</strong></p>
+<ul>
+<li>Fonction spécifique</li>
+<li>Accessibilité par plusieurs utilisateurs/ordinateurs</li>
+<li>Gestion de bases de données propres (ex: demandes en file d'attente, info sur les utilisateurs/ordinateurs)</li>
+<li>Fonctionnement automatique une fois configurés correctement</li>
+</ul>
+</li>
+</ul>
+<p><strong>II. Services de Rôle</strong></p>
+<ul>
+<li>
+<p><strong>Définition:</strong> Les programmes logiciels qui permettent aux rôles d'exécuter leur fonction.  Un rôle peut avoir plusieurs services.</p>
+</li>
+<li>
+<p><strong>Choix:</strong> Vous pouvez sélectionner les services nécessaires en fonction des besoins.</p>
+</li>
+<li>
+<p><strong>Exemple:</strong></p>
+<ul>
+<li><em>Serveur DNS:</em> un service unique.</li>
+<li><em>Bureau à distance:</em> plusieurs services (ex: accès distant).</li>
+</ul>
+</li>
+</ul>
+<p><strong>III. Fonctionnalités</strong></p>
+<ul>
+<li>
+<p><strong>Définition:</strong> Des programmes logiciels qui améliorent la fonctionnalité d'un ou plusieurs rôles, ou de l'ensemble du serveur.</p>
+</li>
+<li>
+<p><strong>Exemples:</strong></p>
+<ul>
+<li><em>Clustering:</em> améliore la redondance et les performances.</li>
+<li><em>Client Telnet:</em> permet la communication à distance.</li>
+</ul>
+</li>
+</ul>
+<p><strong>IV. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong>
+<ul>
+<li>AD DS</li>
+<li>Contrôleurs de domaine</li>
+<li>Installation de contrôleur de domaine</li>
+</ul>
+</li>
+</ul>
+<p><strong>V. Leçon 1 : Vue d'ensemble d'AD DS</strong></p>
+<ul>
+<li><strong>Concepts:</strong>
+<ul>
+<li>Domaines AD DS</li>
+<li>Unités d'organisation (OU)</li>
+<li>Forêt AD DS</li>
+<li>Schéma AD DS</li>
+</ul>
+</li>
+</ul>
+<p><strong>VI. Composants (Physiques et Logiques)</strong></p>
+<ul>
+<li>
+<p><strong>Composants Physiques:</strong></p>
+<ul>
+<li>Magasin de données</li>
+<li>Contrôleurs de domaine</li>
+<li>Serveur de catalogue global</li>
+<li>Contrôleur de domaine lecture seule</li>
+</ul>
+</li>
+<li>
+<p><strong>Composants Logiques:</strong></p>
+<ul>
+<li>Partitions</li>
+<li>Schéma</li>
+<li>Domaines</li>
+<li>Arborescences de domaines</li>
+<li>Forêts</li>
+<li>Sites</li>
+<li>Unités d'organisation (OU)</li>
+</ul>
+</li>
+</ul>
+<p><strong>VII. Leçon 2 : Vue d'ensemble des contrôleurs de domaine</strong></p>
+<ul>
+<li><strong>Concepts:</strong>
+<ul>
+<li>Contrôleur de domaine</li>
+<li>Catalogue global</li>
+<li>Processus de connexion AD DS</li>
+<li>Enregistrements SRV dans DNS</li>
+<li>Maîtres d'opérations (FSMOs)</li>
+</ul>
+</li>
+</ul>
+<p><strong>VIII. Leçon 3 : Installation d'un contrôleur de domaine</strong></p>
+<ul>
+<li><strong>Méthodes:</strong>
+<ul>
+<li>Installation à partir du Gestionnaire de serveur</li>
+<li>Installation minimale Windows Server 2012</li>
+<li>Mise à niveau d'un contrôleur de domaine</li>
+<li>Installation à partir du support d'installation</li>
+</ul>
+</li>
+</ul>
+<p><strong>IX. Commandes importantes (Exemple)</strong></p>
+<ul>
+<li><code>dcpromo /unattend:&quot;D:\answerfile.txt&quot;</code> (Installation sans assistance)</li>
+</ul>
+<a class="header" href="print.html#gestion-des-objets-de-services-de-domaine-active-directory" id="gestion-des-objets-de-services-de-domaine-active-directory"><h2>Gestion des objets de services de domaine Active Directory</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> Gestion des comptes d'utilisateurs, des comptes de groupes, des comptes d'ordinateurs et la délégation d'administration.</li>
+</ul>
+<p><strong>II. Leçon 1 : Gestion des comptes d'utilisateurs</strong></p>
+<ul>
+<li><strong>Outils d'administration:</strong> Composants logiciels enfichables et le Centre d'administration Active Directory.  Utiliser aussi PowerShell et les commandes du service d'annuaire.</li>
+<li><strong>Création de comptes:</strong>  Processus détaillé de création d'un compte utilisateur (écran illustré).</li>
+<li><strong>Configuration des attributs:</strong>  Configuration des paramètres utilisateur (écran illustré).</li>
+<li><strong>Création des profils utilisateurs:</strong>  Définir le chemin d'accès au profil utilisateur (écran illustré).</li>
+<li><strong>Démonstration:</strong> Manipulation pratique des comptes utilisateurs dans l'environnement.</li>
+</ul>
+<p><strong>III. Leçon 2 : Gestion des comptes de groupes</strong></p>
+<ul>
+<li><strong>Types de groupes:</strong>
+<ul>
+<li>Groupes de distribution (pour le courrier)</li>
+<li>Groupes de sécurité (pour les autorisations)</li>
+</ul>
+</li>
+<li><strong>Étendues de groupes:</strong> Local, Domaine local, Universel et Global (leurs différences dans les membres).</li>
+<li><strong>Implémentation:</strong>  Comment les groupes sont utilisés pour la gestion d'accès aux ressources.</li>
+<li><strong>Groupes par défaut:</strong> Groupes prédéfinis avec des droits spécifiques.</li>
+<li><strong>Identités spéciales:</strong> Groupes spécifiques dont l'appartenance est contrôlée par le système d'exploitation. Exemples : Ouverture de session anonyme, Tout le monde, Interactif, Réseau.</li>
+<li><strong>Démonstration:</strong> Manipulation pratique des groupes dans l'environnement.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Gestion des comptes d'ordinateurs</strong></p>
+<ul>
+<li><strong>Le conteneur Ordinateurs:</strong> Description du conteneur qui gère les comptes d'ordinateurs.</li>
+<li><strong>Spécification de l'emplacement:</strong>  Meilleures pratiques pour la structuration des comptes d'ordinateurs.</li>
+<li><strong>Contrôle des autorisations:</strong> Gestion des autorisations pour créer des comptes d'ordinateurs (écran illustré).</li>
+<li><strong>Comptes d'ordinateurs et canaux sécurisés:</strong>  Comprendre l'importance des comptes d'ordinateurs et des canaux sécurisés.</li>
+<li><strong>Réinitialisation du canal sécurisé:</strong>  Comment rétablir un canal sécurisé après des modifications ou des actions spécifiques.</li>
+</ul>
+<p><strong>V. Leçon 4 : Délégation de l'administration</strong></p>
+<ul>
+<li><strong>Autorisations AD DS:</strong>  Principes de base des autorisations Active Directory.</li>
+<li><strong>Autorisations AD DS effectives:</strong> Comment les autorisations sont calculées en cas de conflit.  Utilisation de l'onglet &quot;Autorisations effectives&quot; pour évaluer les permissions.</li>
+<li><strong>Démonstration:</strong>  Processus de délégation de contrôle administratif (écran illustré).</li>
+</ul>
+<a class="header" href="print.html#implémentation-du-protocole-ipv4" id="implémentation-du-protocole-ipv4"><h2>Implémentation du protocole IPv4</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> TCP/IP, Adressage IPv4, Sous-réseau, Super-réseau, Configuration et résolution de problèmes IPv4.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble de TCP/IP</strong></p>
+<ul>
+<li><strong>Suite de protocoles TCP/IP:</strong> Une suite de protocoles qui permettent la communication entre ordinateurs.</li>
+<li><strong>Protocoles de la suite TCP/IP:</strong>  Différents protocoles (HTTP, FTP, SMTP, DNS, etc.) et leurs rôles dans la communication.</li>
+<li><strong>Applications TCP/IP:</strong> Exemples d'applications qui utilisent la suite TCP/IP (HTTP, HTTPS, FTP, RDP, SMB, SMTP, POP3).</li>
+<li><strong>Socket:</strong> Une combinaison d'adresse IP, de protocole de transport (TCP ou UDP) et de numéro de port pour identifier une connexion spécifique.</li>
+</ul>
+<p><strong>III. Leçon 2 : Fonctionnement de l'adressage IPv4</strong></p>
+<ul>
+<li><strong>Adressage IPv4:</strong> Structure et représentation des adresses IP (notation décimale avec points).</li>
+<li><strong>Adresses IPv4 publiques et privées:</strong>  Différence et usages (ex: adresses privées pour les réseaux locaux).</li>
+<li><strong>Relation entre notation décimale et binaire:</strong>  Conversion entre la représentation décimale (ex: 192.168.1.1) et la représentation binaire de l'adresse IP.</li>
+<li><strong>Implémentations simples d'IPv4:</strong> Classes d'adresses (A, B, C) et leurs tailles de réseau.</li>
+<li><strong>Implémentations plus complexes d'IPv4:</strong>  Sous-réseaux, permettant de diviser un réseau en segments plus petits.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Sous-réseau et super-réseau</strong></p>
+<ul>
+<li><strong>Sous-réseau:</strong>  Diviser un réseau en sous-réseaux plus petits pour une meilleure gestion du trafic et de la sécurité.</li>
+<li><strong>Avantages du sous-réseau:</strong>  Gestion du trafic, sécurité, capacité d'extension, utilisation efficiente des adresses IP.</li>
+<li><strong>Calcul des adresses de sous-réseau:</strong>  Détermination du nombre de bits requis pour le masque de sous-réseau en fonction des besoins.</li>
+<li><strong>Calcul des adresses d'hôte:</strong>  Déterminer le nombre d'hôtes disponibles dans un sous-réseau.</li>
+<li><strong>Création d'un modèle de sous-réseau:</strong>  Étapes pour créer un modèle de sous-réseau adapté à un nouveau bureau.</li>
+<li><strong>Super-réseau:</strong>  Combinaison de plusieurs petits réseaux en un seul plus grand.</li>
+</ul>
+<p><strong>V. Leçon 4 : Configuration et résolution des problèmes liés à IPv4</strong></p>
+<ul>
+<li><strong>Configuration manuelle d'IPv4:</strong>  Saisir manuellement les paramètres d'adresse IP, masque de sous-réseau, passerelle par défaut et serveurs DNS. (écran illustré)</li>
+<li><strong>Configuration automatique d'IPv4 (DHCP):</strong>  Utiliser un serveur DHCP pour attribuer automatiquement les paramètres réseau. (Exemple de code)</li>
+<li><strong>Outils de résolution de problèmes:</strong>  Commandes pour diagnostiquer les problèmes réseau (Ipconfig, Ping, Tracert, Pathping, Telnet, Netstat, Observateur d'événements).</li>
+<li><strong>Processus de résolution de problèmes IPv4:</strong> Méthodologie de résolution des problèmes réseau.</li>
+<li><strong>Moniteur réseau:</strong>  Outil pour capturer et analyser le trafic réseau.  (écran illustré)</li>
+</ul>
+<p><strong>VI.  Utilisation de PowerShell (pour la configuration)</strong></p>
+<ul>
+<li><strong>Applets de commande PowerShell:</strong>  Commandes pour la gestion d'IPv4 dans PowerShell. (Liste fournie)</li>
+</ul>
+<a class="header" href="print.html#feuille-de-triche---module-8--implémentation-dipv6" id="feuille-de-triche---module-8--implémentation-dipv6"><h2>Feuille de triche - Module 8 : Implémentation d'IPv6</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong>  Protocole IPv6, Adressage IPv6, Cohabitation IPv4/IPv6, Technologies de transition IPv6.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble du protocole IPv6</strong></p>
+<ul>
+<li><strong>Avantages d'IPv6:</strong> Espace d'adressage plus vaste, infrastructure de routage hiérarchique, configuration sans état (ou avec état), prise en charge obligatoire d'IPsec, qualité de service (QoS), gestion améliorée des sous-réseaux, extensibilité.</li>
+<li><strong>Différences entre IPv4 et IPv6:</strong>  La feuille de triche liste les fonctionnalités avec les méthodes utilisées dans chaque protocole.</li>
+<li><strong>Format d'adresse IPv6:</strong>  L'adresse IPv6 est constituée de 128 bits, représentés en hexadécimal, séparés par des deux-points.</li>
+</ul>
+<p><strong>III. Leçon 2 : Adressage IPv6</strong></p>
+<ul>
+<li><strong>Structure de l'adresse IPv6:</strong> Les différentes parties de l'adresse (préfixe de réseau, identificateur d'interface).</li>
+<li><strong>Adresses monodiffusion globales:</strong>  Pour la communication sur Internet.</li>
+<li><strong>Adresses de monodiffusion uniques locales:</strong>  Pour les communications sur des réseaux locaux.</li>
+<li><strong>Adresses de monodiffusion de liaison locale:</strong>  Pour la communication sur des réseaux locaux.</li>
+<li><strong>Configuration automatique des adresses IPv6:</strong>  Comment les adresses sont configurées automatiquement (ex: DHCPv6).</li>
+<li><strong>Démonstration:</strong>  Configuration des paramètres clients IPv6.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Cohabitation avec IPv4</strong></p>
+<ul>
+<li><strong>Types de nœuds:</strong> Nœuds IPv4, IPv6 et IPv4/IPv6.</li>
+<li><strong>Démonstration (Configuration DNS):</strong>  Configuration du système DNS pour prendre en charge IPv6.</li>
+<li><strong>Tunneling IPv6/IPv4:</strong>  Comment IPv6 peut être encapsulé dans des paquets IPv4 pour traverser des réseaux IPv4.</li>
+</ul>
+<p><strong>V. Leçon 4 : Technologies de transition IPv6</strong></p>
+<ul>
+<li><strong>ISATAP:</strong>  Un tunneling qui permet la communication IPv6 sur un réseau intranet IPv4.</li>
+<li><strong>6to4:</strong> Un tunneling qui permet la connectivité IPv6 sur un réseau IPv4 existant.</li>
+<li><strong>Teredo:</strong>  Un tunneling qui permet aux hôtes IPv6 de communiquer sur Internet via un serveur Teredo sur un réseau IPv4.</li>
+<li><strong>PortProxy:</strong>  Un mécanisme de traduction de port qui permet aux applications IPv4 de communiquer avec des hôtes IPv6.</li>
+<li><strong>Processus de transition vers IPv6:</strong>  étapes importantes pour migrer d'IPv4 vers IPv6.</li>
+</ul>
+<a class="header" href="print.html#feuille-de-triche---module-6--implémentation-du-protocole-dhcp" id="feuille-de-triche---module-6--implémentation-du-protocole-dhcp"><h2>Feuille de triche - Module 6 : Implémentation du protocole DHCP</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> Installation d'un serveur DHCP, configuration des étendues DHCP, gestion des bases de données DHCP, sécurisation et surveillance du service DHCP.</li>
+</ul>
+<p><strong>II. Leçon 1 : Installation d'un rôle Serveur DHCP</strong></p>
+<ul>
+<li><strong>Avantages de DHCP:</strong> Simplification de la configuration des adresses IP, automatisation des tâches administratives, réduction des erreurs de configuration.</li>
+<li><strong>Fonctionnement de l'allocation d'adresses IP par DHCP:</strong>  Le processus de requête, offre, demande et réponse pour l'attribution d'une adresse IP.</li>
+<li><strong>Fonctionnement du processus de création d'un bail DHCP:</strong> Étapes du processus de création d'un bail DHCP (DHCPDISCOVER, DHCPOFFER, DHCPREQUEST, DHCPACK). Diagrammes illustratifs.</li>
+<li><strong>Fonctionnement du processus de renouvellement d'un bail DHCP:</strong> Étapes du processus de renouvellement d'un bail DHCP (DHCPREQUEST, DHCPACK). Diagrammes illustratifs.</li>
+<li><strong>Agent de relais DHCP:</strong>  Un routeur ou un ordinateur qui transmet les requêtes des clients DHCP aux serveurs DHCP sur des sous-réseaux différents.</li>
+<li><strong>Autorisation du serveur DHCP:</strong>  Comment configurer le serveur DHCP dans Active Directory pour qu'il soit autorisé à attribuer des adresses IP.</li>
+<li><strong>Démonstration : Ajout du rôle serveur DHCP:</strong>  Processus de mise en place d'un serveur DHCP.</li>
+</ul>
+<p><strong>III. Leçon 2 : Configuration des étendues DHCP</strong></p>
+<ul>
+<li><strong>Étendues DHCP:</strong>  Un ensemble d'adresses IP que le serveur DHCP peut attribuer aux clients.</li>
+<li><strong>Réservations DHCP:</strong>  Attribution d'une adresse IP spécifique à un client DHCP particulier.</li>
+<li><strong>Options DHCP:</strong>  Paramètres supplémentaires qui peuvent être configurés pour ajuster le fonctionnement du serveur DHCP (ex: passerelle par défaut, serveurs DNS, serveurs WINS).</li>
+<li><strong>Application des options DHCP:</strong>  Comment les options DHCP sont appliquées au niveau du serveur, de l'étendue, de la classe et du client réservé.</li>
+<li><strong>Démonstration : Création et configuration d'une étendue DHCP:</strong> Processus pratique de création et de configuration d'une étendue DHCP.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Gestion d'une base de données DHCP</strong></p>
+<ul>
+<li><strong>Base de données DHCP:</strong>  Description des informations stockées dans la base de données DHCP (étendues, réservations, baux).</li>
+<li><strong>Sauvegarde et restauration de la base de données DHCP:</strong>  Importance de sauvegarder la base de données et les méthodes de restauration.</li>
+<li><strong>Rapprochement d'une base de données DHCP:</strong>  Processus permettant de mettre à jour la base de données avec les données les plus récentes.</li>
+<li><strong>Déplacement d'une base de données DHCP:</strong>  Procédure de déplacement d'une base de données DHCP vers un nouveau serveur.</li>
+</ul>
+<p><strong>V. Leçon 4 : Sécurisation et surveillance DHCP</strong></p>
+<ul>
+<li><strong>Sécurisation DHCP:</strong>  Procédures pour empêcher les ordinateurs non autorisés d'obtenir des baux et les serveurs non autorisés de louer des adresses IP.</li>
+<li><strong>Délégation de l'administration DHCP:</strong>  Délégation des responsabilités d'administration.</li>
+<li><strong>Statistiques DHCP:</strong>  Informations sur l'utilisation, les demandes et les problèmes relatifs au serveur DHCP.</li>
+<li><strong>Journal d'audit DHCP:</strong>  Informations détaillées sur les événements et les actions DHCP.</li>
+<li><strong>Problèmes DHCP courants:</strong>  Dépannage des problèmes courants (conflit d'adresses, échec d'obtention d'adresse).</li>
+</ul>
+<a class="header" href="print.html#implémentation-du-système-dns" id="implémentation-du-système-dns"><h2>Implémentation du système DNS</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> Résolution de noms, installation et gestion d'un serveur DNS, gestion des zones DNS.</li>
+</ul>
+<p><strong>II. Leçon 1 : Résolution de noms pour les clients et les serveurs Windows</strong></p>
+<ul>
+<li><strong>Noms d'ordinateurs:</strong>  Différents types de noms (nom d'hôte, nom NetBIOS), leurs caractéristiques et limitations.</li>
+<li><strong>DNS (Domain Name System):</strong>  Définition de DNS et ses rôles clés dans la résolution des noms d'hôtes en adresses IP.</li>
+<li><strong>Zones et enregistrements DNS:</strong>  Structure des zones DNS (directes et inversées), types d'enregistrements (A, MX, SRV, NS, SOA, CNAME, PTR).</li>
+<li><strong>Résolution des noms DNS Internet:</strong>  Processus de résolution d'un nom de domaine en adresse IP, incluant le rôle des serveurs DNS locaux, des serveurs DNS racines.</li>
+<li><strong>LLMNR (Link-Local Multicast Name Resolution):</strong>  Méthode de résolution de noms pour les réseaux locaux qui utilise un protocole multicast.</li>
+<li><strong>Résolution des noms par un client:</strong> Détail du processus de résolution (cache, fichier Hosts, serveurs WINS, DNS).</li>
+<li><strong>Résolution des problèmes de résolution de noms:</strong>  Méthodes pour identifier et résoudre les problèmes liés à la résolution de noms (outils, dépannage).</li>
+</ul>
+<p><strong>III. Leçon 2 : Installation et gestion d'un serveur DNS</strong></p>
+<ul>
+<li><strong>Composants d'une solution DNS:</strong>  Serveurs DNS, programmes de résolution, base de données.</li>
+<li><strong>Indications de racine:</strong>  Les informations nécessaires pour trouver les serveurs DNS racines.</li>
+<li><strong>Requêtes DNS:</strong>  Types de requêtes (itérative, récursive) et rôle de serveurs autoritaires et non-autoritaires.</li>
+<li><strong>Transfert DNS:</strong>  Mécanisme de partage des données DNS entre serveurs.</li>
+<li><strong>Fonctionnement de la mise en cache DNS:</strong>  Comment un serveur DNS stocke et utilise les données de résolution de noms.</li>
+<li><strong>Installation du rôle serveur DNS:</strong>  Processus d'installation du serveur DNS.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Gestion des zones DNS</strong></p>
+<ul>
+<li><strong>Types de zones DNS:</strong>  Zones principales (lecture/écriture), secondaires (lecture seule), stubs (pour les serveurs externes).</li>
+<li><strong>Zones intégrées à Active Directory:</strong>  Avantages de cette méthode (réplication, mises à jour dynamiques).</li>
+<li><strong>Mises à jour dynamiques:</strong>  Processus de mise à jour automatique des enregistrements DNS.</li>
+<li><strong>Démonstration : Création d'une zone intégrée à Active Directory:</strong>  Processus pratique de création d'une zone DNS intégrée dans Active Directory.</li>
+</ul>
+<a class="header" href="print.html#sauvegarde-et-restauration-pra" id="sauvegarde-et-restauration-pra"><h2>Sauvegarde et Restauration (PRA)</h2></a>
+<p><strong>I. Généralités</strong></p>
+<ul>
+<li><strong>Pourquoi sauvegarder ?</strong>  Prévenir la perte de données, la corruption, les sinistres.  Importance de la disponibilité des données pour la continuité de l'activité.</li>
+</ul>
+<p><strong>II. Types de Sauvegardes</strong></p>
+<ul>
+<li><strong>Sauvegarde complète:</strong>  Copie complète de toutes les données.  Rapide à restaurer, mais très gourmande en espace et en temps. Généralement réalisée de manière périodique, plutôt que quotidienne pour les entreprises.</li>
+<li><strong>Sauvegarde incrémentale:</strong> Sauvegarde seulement les données modifiées depuis la dernière sauvegarde complète ou incrémentale.  Rapide, mais restauration plus complexe.</li>
+<li><strong>Sauvegarde différentielle:</strong>  Sauvegarde seulement les données modifiées depuis la dernière sauvegarde complète. Plus rapide qu'une sauvegarde complète mais moins rapide qu'une incrémentale. Restauration nécessite la sauvegarde complète et toutes les sauvegardes différentielles.</li>
+</ul>
+<p><strong>III. Fréquence et Planification</strong></p>
+<ul>
+<li><strong>Quand sauvegarder ?</strong>  Optimisez les horaires de sauvegarde pour limiter les impacts sur l'activité principale. Il est souvent préférable de le faire en dehors des heures de pointe ou pendant les périodes d'inactivité.</li>
+<li><strong>À quelle fréquence sauvegarder ?</strong>  Dépend des besoins de l'entreprise et du volume de données.  Incrémentales journalières avec complète hebdomadaire ou mensuelle sont souvent une bonne solution.</li>
+<li><strong>Stratégie de rotation:</strong>  Rotation des sauvegardes pour gérer l'espace.</li>
+</ul>
+<p><strong>IV. Déduplication</strong></p>
+<ul>
+<li><strong>Déduplication:</strong>  Technique permettant de ne sauvegarder qu'une seule fois chaque donnée unique, en utilisant des identifiants uniques de tronçons de données pour économiser de l'espace.  Cette technique est utile pour les grandes quantités de données.</li>
+</ul>
+<p><strong>V. Plan de reprise d'activité (PRA)</strong></p>
+<ul>
+<li><strong>Plan de reprise d'activité:</strong>  Plan d'action pour restaurer les opérations d'une entreprise en cas de sinistre majeur (incendie, inondation, panne majeur, etc).  Cela inclut le choix des processus de sauvegarde et de restauration.</li>
+</ul>
+<a class="header" href="print.html#stockage-fichiers-et-impression" id="stockage-fichiers-et-impression"><h2>Stockage, Fichiers, et Impression</h2></a>
+<p><strong>Module 9 : Stockage local</strong></p>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong>  Stockage (DAS, NAS, SAN), Disques (types et performances), Volumes, systèmes de fichiers.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble du Stockage</strong></p>
+<ul>
+<li><strong>Types et performances de disques:</strong> Différences de performances et de coûts entre les types de disques (EIDE, SATA, SCSI, SAS, SSD).</li>
+<li><strong>DAS (Direct Attached Storage):</strong> Stockage direct au serveur, peu coûteux, mais limité en disponibilité et extension.</li>
+<li><strong>NAS (Network Attached Storage):</strong> Stockage réseau, relativement abordable, mais avec des temps d'accès plus lents.</li>
+<li><strong>SAN (Storage Area Network):</strong> Réseau de stockage dédié, plus haut niveau de disponibilité et de redondance, plus coûteux que NAS ou DAS.</li>
+<li><strong>RAID:</strong> Technique pour améliorer la tolérance aux pannes et les performances du stockage, utilisant plusieurs disques. Différents niveaux de RAID (ex: RAID 0, etc.).</li>
+</ul>
+<p><strong>III. Leçon 2 : Gestion des disques et des volumes</strong></p>
+<ul>
+<li><strong>Formats de table de partition:</strong> MBR (Master Boot Record) et GPT (GUID Partition Table).  Différences de capacité et d'utilisation.</li>
+<li><strong>Types de disques:</strong> Disques de base et dynamiques.</li>
+<li><strong>Système de fichiers:</strong>  Différences entre FAT, NTFS, et ReFS.  Choisir un système de fichiers adapté à vos besoins.</li>
+<li><strong>Points de montage et liens:</strong> Créer des points de montage pour accéder aux ressources d'un disque ou répertoire autrement que par des lettres de lecteur.</li>
+</ul>
+<p><strong>Module 10 : Services de fichiers et d'impression</strong></p>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong>  Sécurisation du stockage, protection des fichiers et dossiers, configuration de l'impression réseau.</li>
+</ul>
+<p><strong>II. Leçon 1 : Sécurisation des fichiers et des dossiers</strong></p>
+<ul>
+<li><strong>Autorisations NTFS:</strong> Contrôle de l'accès aux fichiers et dossiers sur les volumes NTFS, incluant le concept d'héritage.</li>
+<li><strong>Dossiers partagés:</strong>  Fonctionnement et mécanismes d'accès aux dossiers partagés (chemins UNC).</li>
+<li><strong>Énumération basée sur l'accès:</strong>  Mécanisme pour contrôler la visibilité des dossiers partagés en fonction des autorisations.</li>
+<li><strong>Fichiers hors connexion:</strong>  Fonctionnalité pour mettre en cache des fichiers réseau sur l'ordinateur client pour une utilisation hors connexion.</li>
+<li><strong>Démonstration:</strong>  Création et configuration d'un dossier partagé.</li>
+</ul>
+<p><strong>III. Leçon 2 : Protection des fichiers et des dossiers partagés à l'aide de clichés instantanés</strong></p>
+<ul>
+<li><strong>Clichés instantanés:</strong>  Techniques de sauvegarde rapide permettant de capturer l'état des données à un instant précis.</li>
+<li><strong>Planification des clichés instantanés:</strong> Éléments à considérer (capacité du serveur, fréquence des modifications).</li>
+<li><strong>Restauration de données à partir d'un cliché instantané:</strong>  Comment restaurer des données à partir d'un cliché instantané.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Configuration de l'impression réseau</strong></p>
+<ul>
+<li><strong>Avantages de l'impression réseau:</strong>  Gestion centralisée, dépannage facilité, coûts réduits.</li>
+<li><strong>Fonctionnalité Pointer &amp; Imprimer:</strong>  Meilleure structure de gestion pour les pilotes d'imprimante réseau.</li>
+<li><strong>Options de sécurité pour l'impression réseau:</strong>  Autorisations permettant de contrôler l'impression.</li>
+<li><strong>Pools d'imprimantes:</strong>  Combinaison de plusieurs imprimantes physiques en une seule unité logique.</li>
+<li><strong>Impression directe pour les filiales:</strong>  Technique pour connecter les imprimantes du siège social aux filiales.</li>
+<li><strong>Déploiement d'imprimantes:</strong>  Déplacer les imprimantes vers les clients.</li>
+</ul>
+<a class="header" href="print.html#implémentation-dune-stratégie-de-groupe" id="implémentation-dune-stratégie-de-groupe"><h2>Implémentation d'une stratégie de groupe</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> Stratégie de groupe, objets de stratégie de groupe (GPO), magasin central, traitement d'une stratégie de groupe.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble d'une stratégie de groupe</strong></p>
+<ul>
+<li><strong>Composants de la stratégie de groupe:</strong>  Décomposition des éléments clés qui constituent une stratégie de groupe.</li>
+<li><strong>Objets de stratégie de groupe locale multiple:</strong>  Description et fonctionnement des stratégies de groupe locales multiples.</li>
+<li><strong>Stockage des objets de stratégie de groupe de domaine:</strong>  Emplacement et organisation des objets de stratégie de groupe dans le domaine.</li>
+<li><strong>Préférences de stratégie de groupe:</strong>  Spécificité des préférences, et comment les utiliser pour la configuration des paramètres d'applications ou systèmes d'exploitation.</li>
+<li><strong>Objets de stratégie de groupe Starter:</strong>  Description et utilisation des objets de stratégie de groupe préconfigurés.</li>
+<li><strong>Délégation de la gestion des objets de stratégie de groupe:</strong>  Possibilité de déléguer certaines tâches d'administration.</li>
+<li><strong>Démonstration:</strong>  Explication des procédés pratiques de création et de gestion des objets de stratégie de groupe.</li>
+</ul>
+<p><strong>III. Leçon 2 : Traitement d'une stratégie de groupe</strong></p>
+<ul>
+<li><strong>Liaisons d'objet de stratégie de groupe:</strong>  Mécanismes permettant d'appliquer la stratégie de groupe à des objets spécifiques (sites, domaines, unités d'organisation).</li>
+<li><strong>Application des objets de stratégie de groupe:</strong>  Comment et quand les paramètres des objets de stratégies de groupe s'appliquent aux utilisateurs et ordinateurs.</li>
+<li><strong>Ordre de traitement des stratégies de groupe:</strong> Processus de recherche et d'application des GPOs, considérant la hiérarchie des emplacements.</li>
+<li><strong>Objets de stratégie de groupe par défaut:</strong>  GPO existants par défaut dans le domaine pour la configuration de paramètres importants.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Implémentation d'un magasin central pour les modèles d'administration</strong></p>
+<ul>
+<li><strong>Magasin central:</strong>  Rôle et emplacement du magasin central pour les fichiers ADMX et ADML, qui contiennent les modèles d'administration.</li>
+<li><strong>Modèles d'administration:</strong>  Description des fichiers .admx et .adml contenant les paramètres configurables pour l'administration.</li>
+<li><strong>Mode de fonctionnement des modèles d'administration:</strong>  Comment les paramètres contenus dans les fichiers .admx/adml sont gérés par le système.</li>
+<li><strong>Paramètres de stratégie gérés et non gérés:</strong>  Différence entre les paramètres de stratégie que l'utilisateur peut modifier dans une console et ceux qui sont gérés par le système.</li>
+</ul>
+<a class="header" href="print.html#feuille-de-triche---module-12--sécurité-des-serveurs-windows" id="feuille-de-triche---module-12--sécurité-des-serveurs-windows"><h2>Feuille de triche - Module 12 : Sécurité des serveurs Windows</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> Sécurité des systèmes d'exploitation Windows, paramètres de sécurité, restriction d'accès aux logiciels, Pare-feu Windows, fonctions avancées de sécurité.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble de la sécurité des systèmes d'exploitation Windows</strong></p>
+<ul>
+<li><strong>Identification des risques de sécurité et des coûts associés:</strong>  Comprendre les menaces potentielles (ex: virus, attaques par force brute) et l'impact financier d'une violation de sécurité.</li>
+</ul>
+<p><strong>III. Leçon 2 : Application d'une défense en profondeur pour améliorer la sécurité</strong></p>
+<ul>
+<li><strong>Défense en profondeur:</strong> Stratégie de sécurité multicouche, incluant plusieurs couches de protection (physique, réseau, système d'exploitation, applications, données).</li>
+<li><strong>Stratégies, procédures et sensibilisation:</strong>  Mesures à prendre au niveau de la documentation, formation et des utilisateurs.</li>
+<li><strong>Sécurité physique:</strong>  Mesures pour protéger le matériel physique.</li>
+<li><strong>Périmètre réseau:</strong>  Pare-feu, contrôle d'accès, zones de réseau.</li>
+<li><strong>Hôte:</strong>  Renforcement et authentification, mises à jour, antivirus.</li>
+<li><strong>Application:</strong>  Sécurité des applications, antivirus.</li>
+<li><strong>Données:</strong>  Contrôle d'accès aux données (ex: chiffrement).</li>
+</ul>
+<p><strong>IV. Leçon 2 : Configuration des paramètres de sécurité</strong></p>
+<ul>
+<li><strong>Configuration des modèles de sécurité:</strong>  Définir les configurations de sécurité basées sur des modèles.</li>
+<li><strong>Configuration des droits des utilisateurs:</strong>  Attribuer et limiter les droits d'accès aux utilisateurs.</li>
+<li><strong>Configuration des options de sécurité:</strong>  Configurer les paramètres de sécurité spécifiques (ex: noms des comptes, accès aux lecteurs CD/DVD, comportements des pilotes).</li>
+<li><strong>Configuration du contrôle de compte d'utilisateur (UAC):</strong>  Procédure d'authentification utilisateur renforcée.</li>
+</ul>
+<p><strong>V. Leçon 3 : Configuration du contrôle de compte d'utilisateur</strong></p>
+<ul>
+<li><strong>AppLocker:</strong>  Fonctionnalité pour contrôler l'exécution des applications sur les ordinateurs clients.</li>
+<li><strong>Stratégies de restriction logicielle:</strong>  Définir les applications autorisées à s'exécuter sur les ordinateurs clients.</li>
+<li><strong>Attributs de fichier (AppLocker):</strong>  Nom de l'éditeur, nom du produit, nom du fichier, version du fichier.</li>
+</ul>
+<p><strong>VI. Leçon 4 : Configuration du Pare-feu Windows avec fonctions avancées de sécurité</strong></p>
+<ul>
+<li><strong>Pare-feu Windows:</strong>  Fonctions de sécurité réseau, avec état et profils (Domaine, Public, Privé).</li>
+<li><strong>Profils de pare-feu:</strong>  Paramètres par défaut pour différents types de connexions.</li>
+<li><strong>Règles de sécurité de connexion:</strong>  Configurer les règles pour contrôler les connexions entre les ordinateurs.</li>
+<li><strong>Déploiement des règles de pare-feu:</strong>  Appliquer les règles aux ordinateurs clients (ex: via la stratégie de groupe).</li>
+</ul>
+<a class="header" href="print.html#virtualisation-de-serveur-avec-hyper-v" id="virtualisation-de-serveur-avec-hyper-v"><h2>Virtualisation de serveur avec Hyper-V</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> Hyperviseur, virtualisation de serveur, stockage d'ordinateur virtuel, réseaux virtuels.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble des technologies de virtualisation</strong></p>
+<ul>
+<li><strong>Virtualisation de serveur avec Hyper-V:</strong>  Présentation de la virtualisation de serveur.  Avantages (invisible pour les utilisateurs, flexibilité des OS, optimisation des ressources, déploiement simplifiée).</li>
+<li><strong>Windows Azure:</strong> Plateforme de cloud computing pour l'hébergement d'ordinateurs et d'applications virtuelles.</li>
+<li><strong>Virtualisation de bureau (VDI):</strong>  Ordinateurs virtuels accessibles via un client distant.</li>
+<li><strong>Virtualisation de présentation:</strong>  Le serveur gère les applications et le bureau des utilisateurs.</li>
+<li><strong>Microsoft Application Virtualization (App-V):</strong>  Isolation d'application.</li>
+</ul>
+<p><strong>III. Leçon 2 : Implémentation d'Hyper-V</strong></p>
+<ul>
+<li><strong>Hyperviseurs de type 1 et 2:</strong>  Différences entre les types d'hyperviseurs (noyau vs. logiciel hôte).</li>
+<li><strong>Configuration matérielle requise pour Hyper-V:</strong>  Composants requis pour un serveur Hyper-V (processeur x64, mémoire, sous-système de stockage, débit réseau).</li>
+<li><strong>Matériel des ordinateurs virtuels:</strong>  Configuration du matériel simulé dans un ordinateur virtuel (BIOS, mémoire, processeur, contrôleurs, cartes réseau).</li>
+<li><strong>Configuration de la mémoire dynamique:</strong>  Configurer la mémoire allouée à l'ordinateur virtuel en fonction des besoins (mémoire vive minimale, maximale, mémoire tampon).</li>
+<li><strong>Configuration des services d'intégration:</strong>  Configurer les services nécessaires pour gérer les fonctionnalités sur l'ordinateur virtuel (arrêt du système, synchronisation date/heure).</li>
+<li><strong>Configuration des actions de démarrage et d'arrêt:</strong>  Choix des actions pour démarrer et arrêter automatiquement les ordinateurs virtuels (notamment en fonction du système hôte).</li>
+<li><strong>Contrôle des ressources Hyper-V:</strong>  Supervision de l'utilisation des ressources par le serveur et les machines virtuelles.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Gestion du stockage d'ordinateur virtuel</strong></p>
+<ul>
+<li><strong>Disques durs virtuels (VHD):</strong>  Explication des fichiers qui représentent un disque dur classique.</li>
+<li><strong>Création de types de disques virtuels:</strong>  Différentes façons de créer des disques virtuels (taille dynamique, taille fixe).</li>
+<li><strong>Gestion des disques durs virtuels:</strong>  Opérations de maintenance sur les disques durs virtuels (conversion, réduction, développement).</li>
+<li><strong>Disques VHD de différenciation:</strong>  Comment réduire l'espace disque avec les disques VHD.</li>
+<li><strong>Instantanés d'ordinateurs virtuels:</strong>  Points de restauration dans le temps, fichier .xml pour la configuration et le disque de différenciation .avhd.</li>
+</ul>
+<p><strong>V. Leçon 4 : Gestion des réseaux virtuels</strong></p>
+<ul>
+<li><strong>Commutateur virtuel:</strong>  Type de réseau virtuel dans Hyper-V (externe, interne, privé).</li>
+<li><strong>Gestion des adresses MAC d'un ordinateur virtuel:</strong>  Comment configurer et gérer les adresses MAC pour les cartes réseau virtuelles.</li>
+<li><strong>Configuration des cartes réseau virtuel:</strong>  Gestion des paramètres de bande passante, des fonctions avancées (ex: SR-IOV).</li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+
+                
+
+            </div>
+
+            
+
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+        
+
+        
+        <script>
+            $(document).ready(function() {
+                window.print();
+            })
+        </script>
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>

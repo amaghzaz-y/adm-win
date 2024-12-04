@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>GPO - </title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <base href="">
+
+        <link rel="stylesheet" href="book.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <link rel="shortcut icon" href="favicon.png">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme -->
+        
+
+        
+
+        <!-- Fetch Clipboard.js from CDN but have a local fallback -->
+        <script src="https://cdn.jsdelivr.net/clipboard.js/1.6.1/clipboard.min.js"></script>
+        <script>
+            if (typeof Clipboard == 'undefined') {
+                document.write(unescape("%3Cscript src='clipboard.min.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch JQuery from CDN but have a local fallback -->
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            if (typeof jQuery == 'undefined') {
+                document.write(unescape("%3Cscript src='jquery.js'%3E%3C/script%3E"));
+            }
+        </script>
+
+        <!-- Fetch store.js from local - TODO add CDN when 2.x.x is available on cdnjs -->
+        <script src="store.js"></script>
+
+    </head>
+    <body class="light">
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme = store.get('mdbook-theme');
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            $('body').removeClass().addClass(theme);
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var sidebar = store.get('mdbook-sidebar');
+            if (sidebar === "hidden") { $("html").addClass("sidebar-hidden") }
+            else if (sidebar === "visible") { $("html").addClass("sidebar-visible") }
+        </script>
+
+        <div id="sidebar" class="sidebar">
+            <ul class="chapter"><li><a href="./home.html"><strong>1.</strong> Presentation</a></li><li><a href="./WINSRV12.html"><strong>2.</strong> Installation</a></li><li><a href="./ADDS.html"><strong>3.</strong> ROLE FONCTION AD</a></li><li><a href="./AD.html"><strong>4.</strong> AD</a></li><li><a href="./IPV4.html"><strong>5.</strong> IPv4</a></li><li><a href="./IPV6.html"><strong>6.</strong> IPv6</a></li><li><a href="./DHCP.html"><strong>7.</strong> DHCP</a></li><li><a href="./DNS.html"><strong>8.</strong> DNS</a></li><li><a href="./PRA.html"><strong>9.</strong> Sauvegarde et Restauration (PRA)</a></li><li><a href="./STOCKAGE-FICHIER-IMPRESSIOn.html"><strong>10.</strong> IMPRESSION FTP SMTP SSL SSH</a></li><li><a href="./GPO.html" class="active"><strong>11.</strong> GPO</a></li><li><a href="./SECU-GPO.html"><strong>12.</strong> SECU GPO</a></li><li><a href="./HYPER-V.html"><strong>13.</strong> HYPER-V</a></li></ul>
+        </div>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page" tabindex="-1">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div class="left-buttons">
+                        <i id="sidebar-toggle" class="fa fa-bars" title="Toggle sidebar"></i>
+                        <i id="theme-toggle" class="fa fa-paint-brush" title="Change theme"></i>
+                    </div>
+
+                    <h1 class="menu-title"></h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html">
+                            <i id="print-button" class="fa fa-print" title="Print this book"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="content" class="content">
+                    <a class="header" href="./GPO.html#implémentation-dune-stratégie-de-groupe" id="implémentation-dune-stratégie-de-groupe"><h2>Implémentation d'une stratégie de groupe</h2></a>
+<p><strong>I. Vue d'ensemble du module</strong></p>
+<ul>
+<li><strong>Concepts clés:</strong> Stratégie de groupe, objets de stratégie de groupe (GPO), magasin central, traitement d'une stratégie de groupe.</li>
+</ul>
+<p><strong>II. Leçon 1 : Vue d'ensemble d'une stratégie de groupe</strong></p>
+<ul>
+<li><strong>Composants de la stratégie de groupe:</strong>  Décomposition des éléments clés qui constituent une stratégie de groupe.</li>
+<li><strong>Objets de stratégie de groupe locale multiple:</strong>  Description et fonctionnement des stratégies de groupe locales multiples.</li>
+<li><strong>Stockage des objets de stratégie de groupe de domaine:</strong>  Emplacement et organisation des objets de stratégie de groupe dans le domaine.</li>
+<li><strong>Préférences de stratégie de groupe:</strong>  Spécificité des préférences, et comment les utiliser pour la configuration des paramètres d'applications ou systèmes d'exploitation.</li>
+<li><strong>Objets de stratégie de groupe Starter:</strong>  Description et utilisation des objets de stratégie de groupe préconfigurés.</li>
+<li><strong>Délégation de la gestion des objets de stratégie de groupe:</strong>  Possibilité de déléguer certaines tâches d'administration.</li>
+<li><strong>Démonstration:</strong>  Explication des procédés pratiques de création et de gestion des objets de stratégie de groupe.</li>
+</ul>
+<p><strong>III. Leçon 2 : Traitement d'une stratégie de groupe</strong></p>
+<ul>
+<li><strong>Liaisons d'objet de stratégie de groupe:</strong>  Mécanismes permettant d'appliquer la stratégie de groupe à des objets spécifiques (sites, domaines, unités d'organisation).</li>
+<li><strong>Application des objets de stratégie de groupe:</strong>  Comment et quand les paramètres des objets de stratégies de groupe s'appliquent aux utilisateurs et ordinateurs.</li>
+<li><strong>Ordre de traitement des stratégies de groupe:</strong> Processus de recherche et d'application des GPOs, considérant la hiérarchie des emplacements.</li>
+<li><strong>Objets de stratégie de groupe par défaut:</strong>  GPO existants par défaut dans le domaine pour la configuration de paramètres importants.</li>
+</ul>
+<p><strong>IV. Leçon 3 : Implémentation d'un magasin central pour les modèles d'administration</strong></p>
+<ul>
+<li><strong>Magasin central:</strong>  Rôle et emplacement du magasin central pour les fichiers ADMX et ADML, qui contiennent les modèles d'administration.</li>
+<li><strong>Modèles d'administration:</strong>  Description des fichiers .admx et .adml contenant les paramètres configurables pour l'administration.</li>
+<li><strong>Mode de fonctionnement des modèles d'administration:</strong>  Comment les paramètres contenus dans les fichiers .admx/adml sont gérés par le système.</li>
+<li><strong>Paramètres de stratégie gérés et non gérés:</strong>  Différence entre les paramètres de stratégie que l'utilisateur peut modifier dans une console et ceux qui sont gérés par le système.</li>
+</ul>
+
+                </div>
+
+                <!-- Mobile navigation buttons -->
+                
+                    <a rel="prev" href="./STOCKAGE-FICHIER-IMPRESSIOn.html" class="mobile-nav-chapters previous" title="Previous chapter">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a rel="next" href="./SECU-GPO.html" class="mobile-nav-chapters next" title="Next chapter">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+
+            </div>
+
+            
+                <a href="./STOCKAGE-FICHIER-IMPRESSIOn.html" class="nav-chapters previous" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+            
+
+            
+                <a href="./SECU-GPO.html" class="nav-chapters next" title="You can navigate through the chapters using the arrow keys">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            
+
+        </div>
+
+
+        <!-- Local fallback for Font Awesome -->
+        <script>
+            if ($(".fa").css("font-family") !== "FontAwesome") {
+                $('<link rel="stylesheet" type="text/css" href="_FontAwesome/css/font-awesome.css">').prependTo('head');
+            }
+        </script>
+
+        <!-- Livereload script (if served using the cli tool) -->
+        
+
+        
+
+        
+
+        
+
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS script -->
+        
+
+    </body>
+</html>
